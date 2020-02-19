@@ -1,3 +1,3 @@
-isRoute{!AREA}SetupSubmodule(): boolean {
-    return this.includesRoute('{!URLS}');
-  }
+  isRoute{!AREA}SetupSubmodule(): boolean {
+      return this.includesRoute('{!URLS}');
+    }
