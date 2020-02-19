@@ -4,11 +4,11 @@ namespace Bpf.Api.Migrations
 {
     public partial class addModulePermissions{!FIELDS} : Migration
     {
-        private string policyName = "!!!";
+        private string policyName = "{!POLICY}";
         private string englishId = "1";
-        private string moduleNameEnglish = "{!FIELDS}";
+        private string moduleNameEnglish = "{!FIELDS_EN}";
         private string spanishId = "2";
-        private string moduleNameSpanish = "!!!";
+        private string moduleNameSpanish = "{!FIELDS_ES}";
 
         protected override void Up(MigrationBuilder migrationBuilder)
         {

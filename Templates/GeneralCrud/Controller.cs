@@ -27,7 +27,7 @@ namespace Bpf.Api.Areas.{!AREA}.Controllers
         }
 
         [HttpPost("get-filter-{!URLS}")]
-        [PolicyAuthFilter(AuthorizedModules = new ModuleEnum[] { ModuleEnum.{!FIELDS} }, AccessLevel = AccessLevelEnum.List)]
+        [PolicyAuthFilter(AuthorizedModules = new ModuleEnum[] { ModuleEnum.{!MODULE_ENUM} }, AccessLevel = AccessLevelEnum.List)]
         public async Task<IActionResult> GetByFilter([FromBody] BaseSearchFilterModel filter)
         {
             var culture = GetAuthenticatedUserCulture();
@@ -48,7 +48,7 @@ namespace Bpf.Api.Areas.{!AREA}.Controllers
         }
 
         [HttpGet("{id}")]
-        [PolicyAuthFilter(AuthorizedModules = new ModuleEnum[] { ModuleEnum.{!FIELDS} }, AccessLevel = AccessLevelEnum.Read)]
+        [PolicyAuthFilter(AuthorizedModules = new ModuleEnum[] { ModuleEnum.{!MODULE_ENUM} }, AccessLevel = AccessLevelEnum.Read)]
         public async Task<IActionResult> GetById([FromRoute]int id)
         {
             var serviceResponse = await _{!FIELD_CC}Service.GetById(id);
@@ -66,7 +66,7 @@ namespace Bpf.Api.Areas.{!AREA}.Controllers
         }
 
         [HttpGet("get-{!URLS}-items/{filter?}")]
-        [PolicyAuthFilter(AuthorizedModules = new ModuleEnum[] { ModuleEnum.{!OTHER_ENUM}, ModuleEnum.{!FIELDS} }, AccessLevel = AccessLevelEnum.AddEdit)]
+        [PolicyAuthFilter(AuthorizedModules = new ModuleEnum[] { ModuleEnum.{!OTHER_ENUM}, ModuleEnum.{!MODULE_ENUM} }, AccessLevel = AccessLevelEnum.AddEdit)]
         public async Task<IActionResult> GetSelectItemsByFilter(string filter = null)
         {
             var serviceResponse = await _{!FIELD_CC}Service.GetSelectItemsByFilter(filter);
@@ -85,7 +85,7 @@ namespace Bpf.Api.Areas.{!AREA}.Controllers
         }
 
         [HttpPost]
-        [PolicyAuthFilter(AuthorizedModules = new ModuleEnum[] { ModuleEnum.{!OTHER_ENUM}, ModuleEnum.{!FIELDS} }, AccessLevel = AccessLevelEnum.AddEdit)]
+        [PolicyAuthFilter(AuthorizedModules = new ModuleEnum[] { ModuleEnum.{!OTHER_ENUM}, ModuleEnum.{!MODULE_ENUM} }, AccessLevel = AccessLevelEnum.AddEdit)]
         public async Task<IActionResult> Add([FromBody] GeneralModel {!FIELD_CC}Model)
         {
             var captchaResponse = await IsCaptchaTokenValid({!FIELD_CC}Model.CaptchaToken);
@@ -112,7 +112,7 @@ namespace Bpf.Api.Areas.{!AREA}.Controllers
         }
 
         [HttpPut("{id}")]
-        [PolicyAuthFilter(AuthorizedModules = new ModuleEnum[] { ModuleEnum.{!FIELDS} }, AccessLevel = AccessLevelEnum.AddEdit)]
+        [PolicyAuthFilter(AuthorizedModules = new ModuleEnum[] { ModuleEnum.{!MODULE_ENUM} }, AccessLevel = AccessLevelEnum.AddEdit)]
         public async Task<IActionResult> Update([FromRoute] int id, [FromBody] GeneralModel {!FIELD_CC}Model)
         {
             var captchaResponse = await IsCaptchaTokenValid({!FIELD_CC}Model.CaptchaToken);
@@ -140,7 +140,7 @@ namespace Bpf.Api.Areas.{!AREA}.Controllers
         }
 
         [HttpDelete("{id}")]
-        [PolicyAuthFilter(AuthorizedModules = new ModuleEnum[] { ModuleEnum.{!FIELDS} }, AccessLevel = AccessLevelEnum.Delete)]
+        [PolicyAuthFilter(AuthorizedModules = new ModuleEnum[] { ModuleEnum.{!MODULE_ENUM} }, AccessLevel = AccessLevelEnum.Delete)]
         public async Task<IActionResult> Delete([FromRoute] int id)
         {
             var authenticatedUserId = GetAuthenticatedUserId();

@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------------------------------------
 --Object Name	: [{!AREA}].[uspRetrieve{!FIELDS}ByFilter]
---Description	: Payroll Setup Management, retrieve the records and the total of records
+--Description	: {!AREA} Management, retrieve the records and the total of records
 --				  to populate the table or grid of utb{!FIELDS}
 --Author		: Jose Vargas
 --Create Date	: {!DATE}
@@ -68,6 +68,9 @@ BEGIN TRY
 				@pIsActive = '' OR @pIsActive = CONVERT(nvarchar(10), ISNULL(x.IsActive, 0))
 			) AND
 			x.{!FIELD}Name like @pFilter
+		ORDER BY x.IsSystemDefault desc
+		OFFSET @pPageSize * @pPageOffset ROWS
+		FETCH FIRST @pPageSize ROWS ONLY
 	)
 	
 	SELECT * FROM 
@@ -76,9 +79,6 @@ BEGIN TRY
 		UNION ALL
 		SELECT * FROM ( SELECT * FROM cte WHERE cte.IsSystemDefault = 0 ORDER BY cte.EntityId desc OFFSET 0 ROWS ) last
 	) as unionized
-	ORDER BY unionized.IsSystemDefault desc
-	OFFSET @pPageSize * @pPageOffset ROWS
-	FETCH FIRST @pPageSize ROWS ONLY
 
 END TRY
 BEGIN CATCH

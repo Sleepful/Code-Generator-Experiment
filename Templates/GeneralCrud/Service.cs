@@ -30,7 +30,7 @@ namespace Bpf.Api.Services.{!AREA}
                     SetParameterCommand(cmd, "pPageSize", filter.PageSize);
                     SetParameterCommand(cmd, "pPageOffset", filter.PageOffset);
 
-                    cmd.CommandText = "[{AREA}].[uspRetrieve{!FIELDS}ByFilter]";
+                    cmd.CommandText = "[{!AREA}].[uspRetrieve{!FIELDS}ByFilter]";
                 });
             };
             return await ExecuteAsync(FuncAsync);

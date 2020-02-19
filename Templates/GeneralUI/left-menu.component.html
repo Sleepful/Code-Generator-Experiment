@@ -1,0 +1,15 @@
+                  <li data-username=""
+                    [ngClass]="{
+                        'nav-item': true,
+                        'pcoded-hasmenu': true,
+                        'active': isRoute{!AREA}SetupSubmodule(),
+                        'pcoded-trigger': isRoute{!AREA}SetupSubmodule()
+                      }">
+
+
+                      <li [ngClass]="{'active': includesRoute('{!URLS}')}">
+                        <a routerLink="/{!URLS}" class="sub-menu-item" *ngIf="hasPermission(modulesEnums.{!MODULE_ENUM});">{{ 'shared-text' | translate: '{!FIELDS_CC}' | async }}</a>
+                      </li>
+
+
+                    </li>
