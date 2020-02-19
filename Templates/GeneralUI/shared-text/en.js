@@ -1,2 +1,3 @@
 
   "{!FIELDS_CC}": "{!FIELDS_EN}",
+  "{!MODULE_ENUM_CC}": "{!MODULE_ENUM_EN}"

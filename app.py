@@ -20,6 +20,8 @@ policyName = 'Payroll Full Access'
 #UI: shared-text
 field_en = 'Payment Frequency'
 field_es = 'Frecuencia de Pago'
+moduleEnum_en = 'Employee Setup'
+moduleEnum_es = 'Configuración de Empleado'
 
 def main():
   initialize()
@@ -173,6 +175,10 @@ def fillService():
     'Service.cs',
     field+'Service.cs',
     replaceContent)
+  fillTemplates(
+    'ConfigureServiceCollection.cs',
+    'ConfigureServiceCollection.cs',
+    replaceContent)
 
 def fillRetrieveByFilterSproc():
   fillTemplates(
@@ -210,6 +216,7 @@ def initialize():
   p_fields_en = "{!FIELDS_EN}" #translation in english
   p_field_en_lc = "{!FIELD_EN_LC}" #lowercase
 
+
   # sproc var
   p_date = "{!DATE}" #current date for SPROCS
 
@@ -221,6 +228,9 @@ def initialize():
 
   p_moduleEnum = "{!MODULE_ENUM}"
   p_parentEnum = "{!OTHER_ENUM}" # routes accesible from other management places
+  p_moduleEnum_en = "{!MODULE_ENUM_EN}"
+  p_moduleEnum_es = "{!MODULE_ENUM_ES}"
+  p_moduleEnum_cc = "{!MODULE_ENUM_CC}"
 
 
 
@@ -229,12 +239,14 @@ def initialize():
   area_cc = area[:1].lower() + area[1:]
   field_es_lc = field_es.lower()
   field_en_lc = field_en.lower()
+  moduleEnum_cc = moduleEnum[:1].lower() + moduleEnum[1:]
   pairsToReplace = [(area, p_area), (field, p_field), (fields, p_fields),
               (urls, p_urls), (parentEnum, p_parentEnum), (moduleEnum, p_moduleEnum), (date, p_date), 
               (field_cc, p_field_cc), (policyName, p_policyName), 
               (fields_cc, p_fields_cc), (area_cc, p_area_cc),
               (field_es, p_field_es), (field_en, p_field_en), (fields_es, p_fields_es), (fields_en, p_fields_en),
-              (field_es_lc, p_field_es_lc), (field_en_lc, p_field_en_lc)]
+              (field_es_lc, p_field_es_lc), (field_en_lc, p_field_en_lc), 
+              (moduleEnum_en, p_moduleEnum_en), (moduleEnum_es, p_moduleEnum_es), (moduleEnum_cc, p_moduleEnum_cc)]
 
 main()
 

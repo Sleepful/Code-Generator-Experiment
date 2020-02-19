@@ -2,14 +2,20 @@
                     [ngClass]="{
                         'nav-item': true,
                         'pcoded-hasmenu': true,
-                        'active': isRoute{!AREA}SetupSubmodule(),
-                        'pcoded-trigger': isRoute{!AREA}SetupSubmodule()
+                        'active': isRoute{!MODULE_ENUM}Submodule(),
+                        'pcoded-trigger': isRoute{!MODULE_ENUM}Submodule()
                       }">
+                      <a href="javascript:" class="nav-link">
+                        <span class="pcoded-mtext sub-menu-group">{{ 'shared-text' | translate: '{!MODULE_ENUM_CC}' | async }}</span>
+                      </a>
+                      <ul [ngStyle]="{'display': isRoute{!MODULE_ENUM}Submodule() ? 'block' : 'none'}"
+                        class="pcoded-submenu">
 
 
-                      <li [ngClass]="{'active': includesRoute('{!URLS}')}">
-                        <a routerLink="/{!URLS}" class="sub-menu-item" *ngIf="hasPermission(modulesEnums.{!MODULE_ENUM});">{{ 'shared-text' | translate: '{!FIELDS_CC}' | async }}</a>
+                      <li [ngClass]="{'active': includesRoute('manage-{!URLS}')}">
+                        <a routerLink="/manage-{!URLS}" class="sub-menu-item" *ngIf="hasPermission(modulesEnums.{!MODULE_ENUM});">{{ 'shared-text' | translate: '{!FIELDS_CC}' | async }}</a>
                       </li>
 
 
+                      </ul>
                     </li>

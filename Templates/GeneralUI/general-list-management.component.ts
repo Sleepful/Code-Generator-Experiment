@@ -14,6 +14,6 @@
 
 
 
-        case GeneralManagementEnum.{!FIELDS}:
-            operation = this.listEntitiesService.get{!FIELDS}ByFilter(entityFilter);
-            break;
+      case GeneralManagementEnum.{!FIELDS}:
+        operation = this.listEntitiesService.get{!FIELDS}ByFilter(entityFilter);
+        break;

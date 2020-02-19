@@ -1,3 +1,3 @@
-  isRoute{!AREA}SetupSubmodule(): boolean {
-      return this.includesRoute('{!URLS}');
+  isRoute{!MODULE_ENUM}Submodule(): boolean {
+      return this.includesRoute('manage-{!URLS}');
     }
