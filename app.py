@@ -1,31 +1,28 @@
 import re
 import os
 import datetime
-#Begin automation
-print('Hello, metaprogramming!')
+
 # {!AREA} {!AREA_CC} {!FIELD} {!FIELD_CC} {!FIELDS} {!FIELDS_CC} {!URLS}
 area = 'Payroll'
-field = 'PaymentFrequency'
-fields = 'PaymentFrequencies'
-urls = 'payment-frequencies'
-moduleEnum = 'EmployeeSetup'
-parentEnum = 'TaxesManagement'
+field = 'PayrollItemBasis'
+fields = 'PayrollItemBases'
+urls = 'payroll-item-bases'
+moduleEnum = 'PayrollItemsSetup'
+parentEnum = 'PayrollItemsSetup'
 
 #API: enum
 #UI: module permissions, shared-text, edit.service
-fields_en = 'Payment Frequencies' #basically the same as field but with spaces and case
-fields_es = 'Frecuencias de Pago'
+fields_en = 'Payroll Item Bases' #basically the same as field but with spaces and case
 policyName = 'Payroll Full Access'
 
 #UI: shared-text
-field_en = 'Payment Frequency'
-field_es = 'Frecuencia de Pago'
-moduleEnum_en = 'Employee Setup'
-moduleEnum_es = 'Configuración de Empleado'
+field_en = 'Payroll Item Basis'
+moduleEnum_en = 'Payroll - Payroll Items Setup'
 
 def main():
   initialize()
-  # generalCrud()
+  generalCrud()
+  print('\n # # # # # # # # # # # # # #\n')
   generalUI()
 
 def generalUI():
@@ -37,7 +34,7 @@ def generalUI():
   print('\nremember to add new enum modules if necessary:')
   print('    > modify: modules.enum.ts')
   print('    '+moduleEnum+' = numbah')
-  print('    > modify: general-management-type-enum.ts')
+  print('    > modify: general-management-type.enum.ts')
   print('    '+fields+' = numbah')
 
 def fillTranslationsUI():
@@ -110,11 +107,12 @@ def generalCrud():
   #remmeber to add new enum modules if necessary
   print('\nremember to add new enum modules if necessary:')
   print('    > modify: ModuleEnum.cs')
-  print('    [Description("'+fields_en+'")]')
+  print('    [Description("'+moduleEnum_en+'")]')
   print('    '+moduleEnum+' = numbah')
   print('    * dotnet ef migrations add add-ModulePermissions'+fields)
 
-  print('\nremember to add default values if any')
+  print('\nremember to add default values if any:')
+  print('    * dotnet ef migrations add add-default'+fields)
   print('\nUpdate :D')
   print('    * dotnet ef database update')
 
@@ -247,6 +245,11 @@ def initialize():
               (field_es, p_field_es), (field_en, p_field_en), (fields_es, p_fields_es), (fields_en, p_fields_en),
               (field_es_lc, p_field_es_lc), (field_en_lc, p_field_en_lc), 
               (moduleEnum_en, p_moduleEnum_en), (moduleEnum_es, p_moduleEnum_es), (moduleEnum_cc, p_moduleEnum_cc)]
+
+# forgotten ;-;
+fields_es = '-'
+field_es = '-'
+moduleEnum_es = '-'
 
 main()
 

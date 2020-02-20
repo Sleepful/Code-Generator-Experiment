@@ -68,7 +68,7 @@ BEGIN TRY
 				@pIsActive = '' OR @pIsActive = CONVERT(nvarchar(10), ISNULL(x.IsActive, 0))
 			) AND
 			x.{!FIELD}Name like @pFilter
-		ORDER BY x.IsSystemDefault desc
+		ORDER BY x.IsSystemDefault desc, x.{!FIELD}Id desc
 		OFFSET @pPageSize * @pPageOffset ROWS
 		FETCH FIRST @pPageSize ROWS ONLY
 	)

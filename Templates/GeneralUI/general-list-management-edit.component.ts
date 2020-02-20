@@ -1,18 +1,18 @@
 /////////////////////////////////////////////////////////////
 
       case GeneralManagementEnum.{!FIELDS}:
-              this.hasManagementAddEditPermission = this.userSessionService
-                .hasPermission(ModulesEnum.{!MODULE_ENUM}, AccessLevelEnum.AddEdit);
-              this.hasManagementDeletePermission = this.userSessionService
-                .hasPermission(ModulesEnum.{!MODULE_ENUM}, AccessLevelEnum.Delete);
+        this.hasManagementAddEditPermission = this.userSessionService
+          .hasPermission(ModulesEnum.{!MODULE_ENUM}, AccessLevelEnum.AddEdit);
+        this.hasManagementDeletePermission = this.userSessionService
+          .hasPermission(ModulesEnum.{!MODULE_ENUM}, AccessLevelEnum.Delete);
 
-              this.statusTitle = this.translatePipe.transform('common-management', 'systemStatus').value;
-              this.createTitle = this.translatePipe.transform('common-management', 'new{!FIELD}').value;
-              this.editTitle = this.translatePipe.transform('common-management', 'edit{!FIELD}').value;
-              this.detailTitle = this.translatePipe.transform('common-management', '{!FIELD_CC}Detail').value;
-              this.confirmDeleteTitle = this.translatePipe.transform('common-management', '{!FIELD_CC}ConfirmDeleteMessage').value;
+        this.statusTitle = this.translatePipe.transform('common-management', 'systemStatus').value;
+        this.createTitle = this.translatePipe.transform('common-management', 'new{!FIELD}').value;
+        this.editTitle = this.translatePipe.transform('common-management', 'edit{!FIELD}').value;
+        this.detailTitle = this.translatePipe.transform('common-management', '{!FIELD_CC}Detail').value;
+        this.confirmDeleteTitle = this.translatePipe.transform('common-management', '{!FIELD_CC}ConfirmDeleteMessage').value;
 
-              break;
+        break;
 
 /////////////////////////////////////////////////////////////
 

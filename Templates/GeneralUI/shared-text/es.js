@@ -1,3 +1,3 @@
 
-  "{!FIELDS_CC}": "{!FIELDS_ES}",
-  "{!MODULE_ENUM_CC}": "{!MODULE_ENUM_ES}"
+  "manage{!FIELDS}": "-",
+  "{!MODULE_ENUM_CC}": "-"

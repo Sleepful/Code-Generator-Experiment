@@ -13,7 +13,7 @@
 
 
                       <li [ngClass]="{'active': includesRoute('manage-{!URLS}')}">
-                        <a routerLink="/manage-{!URLS}" class="sub-menu-item" *ngIf="hasPermission(modulesEnums.{!MODULE_ENUM});">{{ 'shared-text' | translate: '{!FIELDS_CC}' | async }}</a>
+                        <a routerLink="/manage-{!URLS}" class="sub-menu-item" *ngIf="hasPermission(modulesEnums.{!MODULE_ENUM});">{{ 'shared-text' | translate: 'manage{!FIELDS}' | async }}</a>
                       </li>
 
 

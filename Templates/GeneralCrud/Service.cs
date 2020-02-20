@@ -38,7 +38,7 @@ namespace Bpf.Api.Services.{!AREA}
 
         public async Task<ServiceResponse<{!FIELD}>> GetById(int {!FIELD_CC}Id)
         {
-            async Task<{!FIELD_CC}> FuncAsync()
+            async Task<{!FIELD}> FuncAsync()
             {
                 var {!FIELD_CC} = await _context.{!FIELDS}.FindAsync({!FIELD_CC}Id);
                 ValidateDatabaseEntity({!FIELD_CC});
