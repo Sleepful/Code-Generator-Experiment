@@ -9,7 +9,7 @@ The script is written in python at `app.py`, I'd run it with `start.sh` and clea
 So basically what this did, is create a CRUD component with 3 input fields, the name of the
 component is customizable inside the python script, this would generate the code needed for a
 C# backend, with its respective Entities for the database, stored procedure, and migrations. 
-It would also generate the needed for an Angular front-end with bootstrap.
+It would also generate the needed code for an Angular front-end with bootstrap.
 
 # Running it
 
